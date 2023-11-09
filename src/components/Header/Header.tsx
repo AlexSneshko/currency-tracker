@@ -2,10 +2,15 @@ import styles from './Header.module.scss'
 import logo from '@/assets/currency-tracker-icon.svg'
 import { NavLink } from 'react-router-dom'
 import Switcher, { SwitcherProps } from '../ui/Switcher/Switcher'
+import { useTheme } from 'styled-components'
 
-interface HeaderProps extends SwitcherProps {}
+interface HeaderProps {
+  onSwitchTheme: React.ChangeEventHandler<HTMLInputElement>
+}
 
-const Header: React.FC<HeaderProps> = ({ isOn, handleToggle }) => {
+const Header: React.FC<HeaderProps> = ({ onSwitchTheme }) => {
+  const theme = useTheme()
+
   const isLinkActive = ({ isActive }: { isActive: boolean }) =>
     isActive ? styles.active : ''
 
@@ -37,7 +42,7 @@ const Header: React.FC<HeaderProps> = ({ isOn, handleToggle }) => {
             </li>
           </ul>
         </nav>
-        <Switcher isOn={isOn} handleToggle={handleToggle} />
+        <Switcher isOn={theme.title === 'light'} handleToggle={onSwitchTheme} />
       </div>
     </header>
   )
