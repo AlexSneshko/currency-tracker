@@ -1,0 +1,49 @@
+.header {
+  width: 100%;
+  margin: 0;
+  border-bottom: 0.1rem solid #030304;
+}
+
+.logo {
+  width: min-content;
+}
+
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 78rem;
+  padding: 2rem 6rem;
+}
+
+.nav {
+  flex: 1;
+}
+
+.nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  max-width: 40rem;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 1.25rem;
+  color: inherit;
+}
+
+.nav a:not(.active):hover {
+  color: #69736b;
+}
+
+.nav .active {
+  background: linear-gradient(
+    90deg,
+    #00ce2c 0.18%,
+    #aedf23 49.3%,
+    #a3dc00 99.88%
+  );
+  -webkit-background-clip: text;
+  color: transparent;
+}

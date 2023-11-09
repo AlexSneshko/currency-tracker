@@ -2,7 +2,7 @@ import React from 'react'
 
 import styles from './Switcher.module.scss'
 
-interface SwitcherProps {
+export interface SwitcherProps {
   isOn: boolean
   handleToggle: React.ChangeEventHandler<HTMLInputElement>
 }
