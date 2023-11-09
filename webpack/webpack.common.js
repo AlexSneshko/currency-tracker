@@ -11,6 +11,9 @@ module.exports = {
         extensions: ['.js', '.jsx', '.json', '.ts', '.tsx'],
       }),
     ],
+    alias: {
+      styles: path.join(__dirname, '..', './styles'),
+    },
   },
   module: {
     rules: [

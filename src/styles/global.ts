@@ -1,6 +1,8 @@
 import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
+  $primary: red;
+
   * {
     margin: 0 auto;
     padding: 0;
@@ -11,7 +13,6 @@ export default createGlobalStyle`
     background: ${(props) => props.theme.colors.background};
     font-style: normal;
     color: ${(props) => props.theme.colors.text};
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
     font-family: 'Poppins', sans-serif;
     line-height: normal;
   }
