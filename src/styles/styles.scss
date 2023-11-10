@@ -1,0 +1,16 @@
+$primary: linear-gradient(90deg, #00ce2c 0.18%, #aedf23 49.3%, #a3dc00 99.88%);
+$black: #030304;
+$white: #fff;
+
+.primaryTextGradient {
+  background: $primary;
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.container {
+  max-width: 76rem;
+  padding: 0 7rem;
+  margin: 0 auto;
+}

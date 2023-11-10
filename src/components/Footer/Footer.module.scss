@@ -1,0 +1,61 @@
+@import '~styles/styles.scss';
+
+.footer {
+  @extend .container;
+}
+
+.footerContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.companyInfoBlock {
+  width: 30rem;
+  margin-right: 6.5rem;
+}
+
+.companyInfoBlock img {
+  width: 2rem;
+  margin-right: 1rem;
+}
+
+.companyTitle {
+  @extend .primaryTextGradient;
+  font-weight: 600;
+  font-size: 1.625rem;
+  text-align: right;
+}
+
+.companyText {
+  font-size: 1.5rem;
+  font-weight: 300;
+}
+
+.footerContainer {
+  display: flex;
+}
+
+.tableLinks {
+  height: 10rem;
+}
+
+.tableLinks th,
+td {
+  width: 15rem;
+  text-align: left;
+  font-weight: 400;
+}
+
+.tableLinks th {
+  font-size: 1.75rem;
+}
+
+.tableLinks td a {
+  text-decoration: none;
+  color: #898989;
+  font-size: 1.5rem;
+}
+
+.copyRightText {
+  text-align: center;
+}
