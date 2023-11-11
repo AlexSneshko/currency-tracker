@@ -6,9 +6,9 @@ import usePeristedState from '@/utils/usePersistedState'
 import GlobalStyle from '@/styles/global'
 import dark from '@/styles/themes/dark'
 import light from '@/styles/themes/light'
-import Header from '@/components/Header/Header'
-import Banner from '@/components/Banner/Banner'
-import Footer from '@/components/Footer/Footer'
+import Header from '@/components/Header'
+import Banner from '@/components/Banner'
+import Footer from '@/components/Footer'
 
 function App() {
   const [theme, setTheme] = usePeristedState<DefaultTheme>('theme', dark)

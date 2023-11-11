@@ -1,24 +1,23 @@
-import styles from './Banner.module.scss'
 import logo from '@/assets/currency-tracker-icon.svg'
+import { BannerLogo, BannerText, BannerTitle, StyledBanner } from './styled'
 
 const Banner = () => {
   return (
-    <div role="banner" className={styles.banner}>
+    <StyledBanner>
       <div>
-        <p className={styles.bannerTitle}>
+        <BannerTitle>
           Modsen Currency
           <br />
           Tracker
-        </p>
-        <p className={styles.bannerText}>
+        </BannerTitle>
+        <BannerText>
           Quotes for the dollar and other
           <br />
           international currencies.
-        </p>
+        </BannerText>
       </div>
-
-      <img src={logo} className={styles.bannerLogo} />
-    </div>
+      <BannerLogo src={logo} />
+    </StyledBanner>
   )
 }
 
