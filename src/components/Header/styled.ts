@@ -20,20 +20,6 @@ export const StyledNav = styled.nav`
     max-width: 40rem;
     margin: 0 auto;
   }
-
-  /* a {
-    text-decoration: none;
-    font-size: 1.25rem;
-    color: inherit;
-  } */
-
-  /* a:not(.active):hover {
-    color: #69736b;
-  }
-
-  .active {
-    ${primaryTextColor}
-  } */
 `
 export const StyledNavLink = styled(NavLink)`
   text-decoration: none;

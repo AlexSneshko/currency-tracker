@@ -10,23 +10,6 @@ export interface SwitcherProps {
 const Switcher: React.FC<SwitcherProps> = ({ isOn, handleToggle }) => {
   const switchNew = useId()
   return (
-    // <>
-    //   <input
-    //     checked={isOn}
-    //     onChange={handleToggle}
-    //     className={styles.switchCheckbox}
-    //     id={`react-switch-new`}
-    //     type="checkbox"
-    //   />
-    //   <label
-    //     className={classNames(styles.switchLabel, styles[theme.title])}
-    //     htmlFor={`react-switch-new`}
-    //   >
-    //     <span
-    //       className={classNames(styles.switchButton, styles[theme.title])}
-    //     />
-    //   </label>
-    // </>
     <>
       <SwitchCheckbox checked={isOn} onChange={handleToggle} id={switchNew} />
       <SwitchLabel htmlFor={switchNew}>
