@@ -4,7 +4,7 @@ import App from '@/App'
 import BankCardPage from '@/pages/BankCardPage/BankCardPage'
 import ContactPage from '@/pages/ContactPage/ContactPage'
 import ErrorPage from '@/pages/ErrorPage/ErrorPage'
-import HomePage from '@/pages/HomePage/HomePage'
+import HomePage from '@/pages/HomePage'
 import TimelinePage from '@/pages/TimelinePage/TimelinePage'
 
 export const router = createBrowserRouter([

@@ -1,7 +1,7 @@
 import { DefaultTheme, ThemeProvider } from 'styled-components'
 import { Outlet } from 'react-router-dom'
 
-import usePeristedState from '@/utils/usePersistedState'
+import usePeristedState from '@/utils/hooks/usePersistedState'
 
 import GlobalStyle from '@/styles/global'
 import dark from '@/styles/themes/dark'
