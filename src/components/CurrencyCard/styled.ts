@@ -9,6 +9,7 @@ export const StyledCurrencyCard = styled.div`
   background: #202025;
   display: flex;
   gap: 2rem;
+  cursor: pointer;
 
   p {
     margin: 0;

@@ -1,10 +1,12 @@
 import { CurrencyCode, CurrencyWithValuesRecords } from '@/types/currency'
-import { fetchCurrency } from './getAllCurrencyValues'
+import { fetchCurrency } from './fetchCurrency'
 import { CurrencyResponse } from '@/types/api'
 import { currencies } from '@/constants/currencies'
 
-export const getCurrencies = async (): Promise<CurrencyWithValuesRecords> => {
-  const response = await fetchCurrency()
+export const getCurrencies = async (
+  base: CurrencyCode = 'USDT'
+): Promise<CurrencyWithValuesRecords> => {
+  const response = await fetchCurrency(base)
 
   const result: CurrencyWithValuesRecords = {}
 
