@@ -14,7 +14,7 @@ const HomePage = () => {
     getCurrencies().then((data: CurrencyWithValuesRecords) => {
       setCurrencies(data)
     })
-  })
+  }, [])
 
   return (
     <HomePageLayout>

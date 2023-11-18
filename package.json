@@ -14,7 +14,13 @@
   "license": "MIT",
   "dependencies": {
     "axios": "^1.6.1",
+    "axios-cache-adapter": "^2.7.3",
+    "chart.js": "3.9.1",
+    "chartjs-adapter-moment": "^1.0.1",
+    "chartjs-chart-financial": "^0.1.1",
+    "moment": "^2.29.4",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.18.0"
   },
@@ -27,6 +33,7 @@
     "@babel/runtime": "^7.23.2",
     "@jest/globals": "^29.7.0",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.11",
+    "@types/chart.js": "^2.9.40",
     "@types/jest": "^29.5.8",
     "@types/react": "^18.2.34",
     "@types/react-dom": "^18.2.14",

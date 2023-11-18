@@ -1,4 +1,5 @@
 import axios from 'axios'
+import axiosCacheAdapter from 'axios-cache-adapter'
 
 import { BASE_URL, API_KEY } from '@/constants/api'
 
@@ -7,6 +8,8 @@ export const coinApiAxiosInstance = axios.create({
   headers: {
     Accept: 'text/json',
     'X-CoinAPI-Key': API_KEY,
-    'Cache-Control': 'max-age=18000',
   },
+  //   adapter: axiosCacheAdapter.setupCache({
+  //     maxAge: 30 * 60 * 1000,
+  //   }).adapter,
 })
