@@ -4,7 +4,7 @@ export interface CurrencyResponse {
   rate: number
 }
 
-export interface ICurrencyChartResponse {
+export interface CurrencyChartResponse {
   price_close: number
   price_high: number
   price_low: number

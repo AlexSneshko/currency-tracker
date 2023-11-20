@@ -1,6 +1,6 @@
-import { ICurrencyChartResponse } from '@/types/api'
+import { CurrencyChartResponse } from '@/types/api'
 
-const dataCurrenciesResp: ICurrencyChartResponse[] = [
+const dataCurrenciesResp: CurrencyChartResponse[] = [
   {
     time_period_start: '2023-11-18T00:00:00.0000000Z',
     time_period_end: '2023-11-19T00:00:00.0000000Z',

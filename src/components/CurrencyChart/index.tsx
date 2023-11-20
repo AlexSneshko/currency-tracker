@@ -1,4 +1,4 @@
-import React, { FC, memo, useEffect } from 'react'
+import { FC, memo } from 'react'
 import { Bar } from 'react-chartjs-2'
 import {
   BarElement,
@@ -12,17 +12,43 @@ import {
   Tooltip,
 } from 'chart.js'
 
-import { IData, ILineTest } from '@/components/CurrencyChart/interface'
-
 import { Container } from './styled'
-import { useTheme } from 'styled-components'
+
+import { CurrencyChartResponse } from '@/types/api'
+
+interface CurrencyChartProps {
+  dataChart: CurrencyChartResponse[]
+  code: string
+}
+
+interface Data {
+  datasets: [
+    {
+      label: string
+      data: DataElem[]
+      backgroundColor: (ctx: any) => string
+      borderColor: string
+      borderWidth: number
+      borderSkipped: boolean
+    },
+  ]
+}
+
+interface DataElem {
+  x: string | null
+  o: number
+  h: number
+  l: number
+  c: number
+  s: number[]
+}
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
-export const BarChart: FC<ILineTest> = memo(({ dataChart, code }) => {
+export const BarChart: FC<CurrencyChartProps> = memo(({ dataChart, code }) => {
   if (dataChart.length === 0) return null
 
-  const data: IData = {
+  const data: Data = {
     datasets: [
       {
         label: `${code} / USD`,
