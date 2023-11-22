@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
 
 import App from '@/App'
-import BankCardPage from '@/pages/BankCardPage/BankCardPage'
+import BankCardPage from '@/pages/BankCardPage'
 import ContactPage from '@/pages/ContactPage/ContactPage'
 import ErrorPage from '@/pages/ErrorPage/ErrorPage'
 import HomePage from '@/pages/HomePage'

@@ -1,7 +1,7 @@
 export type CurrencyCode =
   | 'AUD'
   | 'ARS'
-  | 'USDT'
+  | 'USD'
   | 'CAD'
   | 'JPY'
   | 'CNY'

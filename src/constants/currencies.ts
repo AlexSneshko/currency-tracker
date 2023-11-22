@@ -34,7 +34,7 @@ export const currencies: CurrencyRecords = {
     name: 'Euro',
     icon: eurIcon,
   },
-  USDT: {
+  USD: {
     name: 'Commertial Dollar',
     icon: usdtIcon,
   },
