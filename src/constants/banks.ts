@@ -28,7 +28,7 @@ export const banks: Array<Bank> = [
   {
     id: 4,
     name: 'Belinvestbank',
-    address: 'addr',
+    address: 'Проспект Дзержинского, 5Б',
     currencies: ['EUR'],
     lat: 53.89023452569515,
     lng: 27.52772055141468,
@@ -36,7 +36,7 @@ export const banks: Array<Bank> = [
   {
     id: 5,
     name: 'Alfabank',
-    address: 'addr',
+    address: 'Проспект Партизанский, 54',
     currencies: ['USD'],
     lat: 53.87507179853327,
     lng: 27.62883850123271,
@@ -44,7 +44,7 @@ export const banks: Array<Bank> = [
   {
     id: 6,
     name: 'BSB Bank',
-    address: 'addr',
+    address: 'улица Филимонова, 15',
     currencies: ['EUR'],
     lat: 53.911719136382416,
     lng: 27.63349215248162,
@@ -52,7 +52,7 @@ export const banks: Array<Bank> = [
   {
     id: 7,
     name: 'Idesbank',
-    address: 'addr',
+    address: 'проспект Независимости, 168Б',
     currencies: ['USD'],
     lat: 53.9454938160888,
     lng: 27.688893562855835,
@@ -60,7 +60,7 @@ export const banks: Array<Bank> = [
   {
     id: 8,
     name: 'Statusbank',
-    address: 'addr',
+    address: 'Баравлянский сельский Совет, 74',
     currencies: ['EUR'],
     lat: 53.964547573567025,
     lng: 27.628998685917534,
@@ -68,7 +68,7 @@ export const banks: Array<Bank> = [
   {
     id: 9,
     name: 'Belarusbank',
-    address: 'addr',
+    address: 'улица Будславская, 23',
     currencies: ['USD'],
     lat: 53.96122185919241,
     lng: 27.547286304666844,
@@ -76,7 +76,7 @@ export const banks: Array<Bank> = [
   {
     id: 10,
     name: 'Dabrabyd',
-    address: 'addr',
+    address: 'улица Мирнаяф, 37В',
     currencies: ['EUR'],
     lat: 53.937295573874806,
     lng: 27.540873113640522,
@@ -84,14 +84,14 @@ export const banks: Array<Bank> = [
   {
     id: 11,
     name: 'Belveb',
-    address: 'addr',
+    address: 'улица Мястровская, 12',
     currencies: ['USD'],
     lat: 53.9367827330774,
     lng: 27.473759827698636,
   },
   {
     id: 12,
-    name: 'Dabrabyd',
+    name: 'Одинцова, 36A',
     address: 'addr',
     currencies: ['EUR'],
     lat: 53.902733506106266,
@@ -100,7 +100,7 @@ export const banks: Array<Bank> = [
   {
     id: 13,
     name: 'MTBank',
-    address: 'addr',
+    address: 'улица Шаранговича, 22/1',
     currencies: ['USD'],
     lat: 53.88687748651972,
     lng: 27.44848891726374,
@@ -109,14 +109,14 @@ export const banks: Array<Bank> = [
     id: 14,
     name: 'BSB Bank',
     currencies: ['EUR'],
-    address: 'addr',
+    address: 'Проспект Газеты Звезда, 41',
     lat: 53.86170315794729,
     lng: 27.465202842360007,
   },
   {
     id: 15,
     name: 'Belarusbank',
-    address: 'addr',
+    address: 'улица Асаналиева, 42',
     currencies: ['USD'],
     lat: 53.85140344019779,
     lng: 27.545385695948905,
