@@ -1,5 +1,6 @@
-import { container } from '@/styles/global'
 import styled from 'styled-components'
+
+import { container } from '@/styles/global'
 
 export const TimelinePageLayout = styled.main`
   ${container}

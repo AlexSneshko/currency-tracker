@@ -1,5 +1,3 @@
-import { FC, memo } from 'react'
-import { Bar } from 'react-chartjs-2'
 import {
   BarElement,
   CategoryScale,
@@ -11,10 +9,12 @@ import {
   Title,
   Tooltip,
 } from 'chart.js'
-
-import { Container } from './styled'
+import { FC, memo } from 'react'
+import { Bar } from 'react-chartjs-2'
 
 import { CurrencyChartResponse } from '@/types/api'
+
+import { Container } from './styled'
 
 interface CurrencyChartProps {
   dataChart: CurrencyChartResponse[]

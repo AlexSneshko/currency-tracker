@@ -1,12 +1,12 @@
 import audIcon from '@/assets/australian-dollar-icon.svg'
-import arsIcon from '@/assets/peso-argentino-icon.svg'
 import btcIcon from '@/assets/bitcoin-icon.svg'
 import cadIcon from '@/assets/canadian-dollar-icon.svg'
 import usdtIcon from '@/assets/dollar-icon.svg'
 import eurIcon from '@/assets/euro-icon.svg'
 import gbrIcon from '@/assets/libra-icon.svg'
-import cnyIcon from '@/assets/yuan-icon.svg'
+import arsIcon from '@/assets/peso-argentino-icon.svg'
 import yenIcon from '@/assets/yen-icon.svg'
+import cnyIcon from '@/assets/yuan-icon.svg'
 import { CurrencyRecords } from '@/types/currency'
 
 export const currencies: CurrencyRecords = {

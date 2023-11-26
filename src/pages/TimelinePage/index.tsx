@@ -1,32 +1,41 @@
-import { BarChart } from '@/components/CurrencyChart'
 import React, { Component, ReactNode } from 'react'
-import { fetchChartData } from '@/utils/api/fetchChartData'
-import { CurrencyChartResponse } from '@/types/api'
+import { connect } from 'react-redux'
+
+import { BarChart } from '@/components/CurrencyChart'
 import OhlcFormsList from '@/components/OhlcFormsList'
-import { TimelinePageLayout } from './styled'
-import { dataCurrencies } from '@/utils/api/data'
 import ForwardedNotification from '@/components/ui/Notification'
+import { fetchChartData } from '@/store/action-creators/chartData'
+import { RootState } from '@/store/reducers'
+import { ChartDataState } from '@/store/types/chartData'
+import { CurrencyChartResponse } from '@/types/api'
 import { observer } from '@/utils/observer'
 
-interface TimelinePageProps {}
+import { TimelinePageLayout } from './styled'
+
+const mapStateToProps = (state: RootState): ChartDataState => state.chartData
+
+const mapDispatchToProps = {
+  fetchChartData,
+}
+
+interface TimelinePageProps extends ChartDataState {
+  fetchChartData: any
+}
 
 interface TimelinePageState {
-  data: CurrencyChartResponse[] | null
+  data: CurrencyChartResponse[]
   notification: {
     notificationStatus: 'success' | 'error'
     notificationMessage: string
   }
 }
 
-export default class TimelinePage extends Component<
-  TimelinePageProps,
-  TimelinePageState
-> {
+class TimelinePage extends Component<TimelinePageProps, TimelinePageState> {
   notificationRef = React.createRef<any>()
   constructor(props: TimelinePageProps) {
     super(props)
     this.state = {
-      data: null,
+      data: [],
       notification: {
         notificationMessage: '',
         notificationStatus: 'success',
@@ -35,11 +44,9 @@ export default class TimelinePage extends Component<
   }
 
   componentDidMount(): void {
-    // fetchChartData().then((data: CurrencyChartResponse[]) => {
-    //   console.log(data)
-    //   this.setState({ ...this.state, data: data })
-    // })
-    this.setState({ ...this.state, data: dataCurrencies })
+    this.props.fetchChartData()
+    this.setState({ ...this.state, data: this.props.chartData })
+
     observer.attach(this.handleShowSnackbar)
   }
 
@@ -54,8 +61,8 @@ export default class TimelinePage extends Component<
   }
 
   ifFormDataFulfilled = (data: CurrencyChartResponse[]) => {
-    for (let dailyData of Object.values(data)) {
-      for (let field of Object.values(dailyData)) {
+    for (const dailyData of Object.values(data)) {
+      for (const field of Object.values(dailyData)) {
         console.log(field)
         if (field <= 0) {
           return false
@@ -90,7 +97,11 @@ export default class TimelinePage extends Component<
   }
 
   render(): ReactNode {
-    if (!this.state.data) {
+    if (!this.props.chartData) {
+      return null
+    }
+
+    if (this.props.loading) {
       return null
     }
 
@@ -110,3 +121,5 @@ export default class TimelinePage extends Component<
     )
   }
 }
+
+export default connect(mapStateToProps, mapDispatchToProps)(TimelinePage)

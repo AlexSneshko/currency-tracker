@@ -4,10 +4,12 @@ import React, {
   useEffect,
   useState,
 } from 'react'
-import Modal, { ModalProps } from '../ui/Modal'
-import { CurrencyCode, CurrencyWithValue } from '@/types/currency'
+
+import { roundNumber } from '@/helpers/roundNumber'
 import { CurrenciesContext } from '@/pages/HomePage'
-import { roundNumber } from '@/utils/helpers/roundNumber'
+import { CurrencyCode, CurrencyWithValue } from '@/types/currency'
+
+import Modal, { ModalProps } from '../ui/Modal'
 
 interface CurrencyModalProps extends Omit<ModalProps, 'children'> {
   currency: CurrencyWithValue

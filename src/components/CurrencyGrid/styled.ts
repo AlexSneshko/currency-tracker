@@ -1,5 +1,6 @@
-import { container, whiteColor } from '@/styles/global'
 import styled from 'styled-components'
+
+import { container, whiteColor } from '@/styles/global'
 
 export const StyledCurrencyGlidContainer = styled.div`
   ${container}

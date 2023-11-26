@@ -1,5 +1,7 @@
-import BanksMap from '@/components/BanksMap'
 import { Component, ReactNode } from 'react'
+
+import BanksMap from '@/components/BanksMap'
+
 import { BanckCardPageLayout } from './styled'
 
 class BankCardPage extends Component {

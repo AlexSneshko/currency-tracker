@@ -1,5 +1,7 @@
-import { CurrencyChartResponse } from '@/types/api'
 import React, { Component } from 'react'
+
+import { CurrencyChartResponse } from '@/types/api'
+
 import { StyledOhlcForm } from './styled'
 
 interface OhlcFormProps {

@@ -1,17 +1,18 @@
 import React from 'react'
-import {
-  CurrencyTitle,
-  StyledCurrencyGlidContainer,
-  StyledCurrencyGrid,
-} from './styled'
 
-import CurrencyCard from '../CurrencyCard'
 import {
   CurrencyCode,
   CurrencyWithValue,
   CurrencyWithValuesRecords,
 } from '@/types/currency'
 import { StocksRecords } from '@/types/stocks'
+
+import CurrencyCard from '../CurrencyCard'
+import {
+  CurrencyTitle,
+  StyledCurrencyGlidContainer,
+  StyledCurrencyGrid,
+} from './styled'
 
 interface CurrencyGridProps {
   title: string
@@ -29,7 +30,11 @@ const CurrencyGrid: React.FC<CurrencyGridProps> = ({
       <CurrencyTitle>{title}</CurrencyTitle>
       <StyledCurrencyGrid>
         {Object.values(currencies).map((currencyInfo) => (
-          <CurrencyCard type={type} currency={currencyInfo} />
+          <CurrencyCard
+            key={`${currencyInfo.name}-${currencyInfo.value}`}
+            type={type}
+            currency={currencyInfo}
+          />
         ))}
       </StyledCurrencyGrid>
     </StyledCurrencyGlidContainer>

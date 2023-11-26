@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react'
-import { ElasicClearButton, ElasticInput, ElasticInputWrapper } from './styled'
+
+import searchIcon from '@/assets/search-icon.svg'
 import { banks } from '@/constants/banks'
 import { Bank } from '@/types/bank'
-import searchIcon from '@/assets/search-icon.svg'
+
+import { ElasicClearButton, ElasticInput, ElasticInputWrapper } from './styled'
 
 interface ElasticBarProps {
   initValue: string

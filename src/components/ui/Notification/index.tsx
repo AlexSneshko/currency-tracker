@@ -1,10 +1,11 @@
 import React, {
   Component,
+  forwardRef,
   ForwardRefExoticComponent,
   RefAttributes,
-  forwardRef,
 } from 'react'
 import ReactDOM from 'react-dom'
+
 import { StyledNotification } from './styled'
 
 interface NotificationProps {

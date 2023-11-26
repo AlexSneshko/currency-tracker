@@ -1,20 +1,18 @@
 import { AxiosError } from 'axios'
 
-import { ALL_CURRENT_RATES_URL } from '@/constants/api'
-import { currencies } from '@/constants/currencies'
-import { coinApiAxiosInstance } from './coinApiAxiosInstance'
+import { ALL_CURRENT_RATES_URL, HISTORICAL_OHLCV } from '@/constants/api'
 import { CurrencyCode } from '@/types/currency'
 
-export const fetchCurrency = async (baseCurrency: CurrencyCode = 'USDT') => {
-  try {
-    const currencyCodes = Object.keys(currencies).join(',')
+import { coinApiAxiosInstance } from './coinApiAxiosInstance'
 
+export const fetchChartDataFromApi = async () => {
+  try {
     const currentRates = await coinApiAxiosInstance.get(
-      `${ALL_CURRENT_RATES_URL}/${baseCurrency}`,
+      HISTORICAL_OHLCV('BTC'),
       {
         params: {
-          filter_asset_id: currencyCodes,
-          invert: true,
+          period_id: '1DAY',
+          limit: 30,
         },
       }
     )

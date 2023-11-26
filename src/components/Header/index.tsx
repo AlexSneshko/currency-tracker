@@ -1,6 +1,8 @@
+import { useTheme } from 'styled-components'
+
 import logo from '@/assets/currency-tracker-icon.svg'
 import Switcher from '@/components/ui/Switcher'
-import { useTheme } from 'styled-components'
+
 import { HeaderContainer, StyledNav, StyledNavLink } from './styled'
 
 interface HeaderProps {

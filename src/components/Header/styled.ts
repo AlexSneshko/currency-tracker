@@ -1,6 +1,7 @@
-import { primaryTextColor } from '@/styles/global'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
+
+import { primaryTextColor } from '@/styles/global'
 
 export const HeaderContainer = styled.header`
   display: flex;

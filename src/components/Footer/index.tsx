@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom'
+
 import logo from '@/assets/currency-tracker-icon.svg'
+
 import {
   FooterCompanyInfoBlock,
   FooterCompanyText,

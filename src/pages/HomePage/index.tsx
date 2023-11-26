@@ -1,19 +1,25 @@
+import { createContext, useEffect, useState } from 'react'
+import { useDispatch } from 'react-redux'
+
 import CurrencyGrid from '@/components/CurrencyGrid'
 import { stocks } from '@/constants/stocks'
-import { getCurrencies } from '@/utils/api/getCurrencies'
-import { createContext, useEffect, useState } from 'react'
-import { HomePageLayout } from './styled'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
+import { fetchCurrencies } from '@/store/action-creators/currency'
 import { CurrencyWithValuesRecords } from '@/types/currency'
+
+import { HomePageLayout } from './styled'
 
 export const CurrenciesContext = createContext<CurrencyWithValuesRecords>({})
 
 const HomePage = () => {
-  const [currencies, setCurrencies] = useState<CurrencyWithValuesRecords>({})
+  const { currencies, error, loading } = useTypedSelector(
+    (state) => state.currency
+  )
+
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    getCurrencies().then((data: CurrencyWithValuesRecords) => {
-      setCurrencies(data)
-    })
+    dispatch(fetchCurrencies())
   }, [])
 
   return (

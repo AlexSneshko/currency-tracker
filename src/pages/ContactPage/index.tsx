@@ -1,4 +1,5 @@
 import { socialData } from '@/constants/socials'
+
 import {
   BlockSocialItem,
   ContactPageLayout,

@@ -1,5 +1,6 @@
 import { ReactNode } from 'react'
 import ReactDOM from 'react-dom'
+
 import { CloseModalButton, ModalOverlay, StyledModal } from './styled'
 
 export interface ModalProps {

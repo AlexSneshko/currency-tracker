@@ -1,5 +1,6 @@
-import { primaryTextColor } from '@/styles/global'
 import styled from 'styled-components'
+
+import { primaryTextColor } from '@/styles/global'
 
 export const StyledBanner = styled.div`
   display: flex;

@@ -1,13 +1,15 @@
 import React, { useState } from 'react'
+
+import { roundNumber } from '@/helpers/roundNumber'
+import { CurrencyCode, CurrencyWithValue } from '@/types/currency'
+
+import CurrencyModal from '../CurrencyModal'
 import {
   CurrencyInfoBlock,
   CurrencyName,
   CurrencyValue,
   StyledCurrencyCard,
 } from './styled'
-import { roundNumber } from '@/utils/helpers/roundNumber'
-import { CurrencyCode, CurrencyWithValue } from '@/types/currency'
-import CurrencyModal from '../CurrencyModal'
 
 interface CurrencyCardProps {
   type: 'stocks' | 'quotes'

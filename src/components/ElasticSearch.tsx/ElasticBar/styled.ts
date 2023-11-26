@@ -1,5 +1,6 @@
-import { whiteColor } from '@/styles/global'
 import styled from 'styled-components'
+
+import { whiteColor } from '@/styles/global'
 
 export const ElasticInputWrapper = styled.div`
   width: 100%;

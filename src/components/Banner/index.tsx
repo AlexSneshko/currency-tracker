@@ -1,4 +1,5 @@
 import logo from '@/assets/currency-tracker-icon.svg'
+
 import { BannerLogo, BannerText, BannerTitle, StyledBanner } from './styled'
 
 const Banner = () => {

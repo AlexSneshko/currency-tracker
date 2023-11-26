@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 import ElasticBar from './ElasticBar'
 import ElasticResultsList from './ElasticResultsList'
 import { StyledElasticSearchContainer } from './styled'

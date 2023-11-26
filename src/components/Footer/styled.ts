@@ -1,5 +1,6 @@
-import { container, primaryTextColor } from '@/styles/global'
 import styled from 'styled-components'
+
+import { container, primaryTextColor } from '@/styles/global'
 
 export const StyledFooter = styled.footer`
   ${container}
