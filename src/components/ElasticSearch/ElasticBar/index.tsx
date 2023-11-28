@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import searchIcon from '@/assets/search-icon.svg'
 import { banks } from '@/constants/banks'
@@ -66,8 +66,11 @@ const ElasticBar = ({ setResults, initValue, onClear }: ElasticBarProps) => {
         placeholder="Type to search..."
         value={input}
         onChange={handleChange}
+        data-testid="elastic-input"
       />
-      <ElasicClearButton onClick={onClearBar}>x</ElasicClearButton>
+      <ElasicClearButton onClick={onClearBar} data-testid="clear-button">
+        x
+      </ElasicClearButton>
     </ElasticInputWrapper>
   )
 }

@@ -30,7 +30,7 @@ class OhlcForm extends Component<Readonly<OhlcFormProps>> {
 
   render(): React.ReactNode {
     return (
-      <StyledOhlcForm>
+      <StyledOhlcForm data-testid="ohlc-form">
         <span>{this.toDDMMformat(this.props.dailyOhlc.time_period_start)}</span>
         {Object.entries(this.props.dailyOhlc)
           .filter(([price_name, price_value]) =>

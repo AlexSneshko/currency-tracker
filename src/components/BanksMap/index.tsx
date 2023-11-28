@@ -6,7 +6,7 @@ import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet'
 
 import { banks } from '@/constants/banks'
 
-import ElasticSearch from '../ElasticSearch.tsx'
+import ElasticSearch from '../ElasticSearch'
 
 const customIcon = new Icon({
   iconUrl: require('@/assets/map-pin-icon.svg'),

@@ -1,3 +1,4 @@
+import React from 'react'
 import ElasticSearchResult from '../ElasticSeacrhResult'
 import { ElasticSearchContainer } from './styled'
 
@@ -21,6 +22,7 @@ const ElasticResultsList = ({
             result={result.name}
             onSelectResult={onSelectResult}
             key={id}
+            data-testid={`result-${id}`}
           />
         )
       })}

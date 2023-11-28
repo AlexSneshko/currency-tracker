@@ -1,3 +1,4 @@
+import React from 'react'
 import { SearchResultContainer } from './styled'
 
 interface ElasticSearchResultProps {
@@ -13,7 +14,10 @@ const ElasticSearchResult = ({
   onSelectResult,
 }: ElasticSearchResultProps) => {
   return (
-    <SearchResultContainer onClick={() => onSelectResult(result)}>
+    <SearchResultContainer
+      onClick={() => onSelectResult(result)}
+      data-testid={`result-${result}`}
+    >
       {result}
     </SearchResultContainer>
   )

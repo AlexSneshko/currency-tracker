@@ -1,12 +1,12 @@
-type Observer = Function
+export type Observer = Function
 
-interface Subject {
+export interface Subject {
   attach(subscriber: Observer): void
   detach(unsunscriber: Observer): void
   notify(): void
 }
 
-class NotificationsObserver implements Subject {
+export class NotificationsObserver implements Subject {
   private observers: Observer[] = []
 
   attach(observer: Observer): void {

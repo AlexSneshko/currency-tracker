@@ -1,9 +1,4 @@
-import React, {
-  MouseEventHandler,
-  useContext,
-  useEffect,
-  useState,
-} from 'react'
+import React, { useContext, useState } from 'react'
 
 import { roundNumber } from '@/helpers/roundNumber'
 import { CurrenciesContext } from '@/pages/HomePage'
@@ -41,7 +36,12 @@ const CurrencyModal: React.FC<CurrencyModalProps> = ({
   return (
     <Modal open={open} onClose={onClose}>
       <span>{currency.name}: </span>
-      <input value={userValue} onChange={onInputhange} type="number" />
+      <input
+        value={userValue}
+        onChange={onInputhange}
+        type="number"
+        data-testid="amount-input"
+      />
       <br />
       <br />
       <select onChange={onSelectChange}>

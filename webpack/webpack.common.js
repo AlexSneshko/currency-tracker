@@ -14,6 +14,7 @@ module.exports = {
     ],
     alias: {
       styles: path.join(__dirname, '..', './styles'),
+      '@/*': path.resolve(__dirname, 'src'),
     },
   },
   module: {

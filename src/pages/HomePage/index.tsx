@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from 'react'
+import React, { createContext, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
 import CurrencyGrid from '@/components/CurrencyGrid'
