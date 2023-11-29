@@ -11,6 +11,14 @@ export const SwitchButton = styled.span`
 
   background: ${(props) => props.theme.colors.background};
   border: 0.125rem solid ${(props) => props.theme.colors.text};
+
+  @media (max-width: 48rem) {
+    width: 1rem;
+    height: 1rem;
+    transition: 0.5s;
+    border-width: 0.0625rem;
+    top: -0.0625rem;
+  }
 `
 
 export const SwitchLabel = styled.label`
@@ -28,6 +36,12 @@ export const SwitchLabel = styled.label`
 
   &:active ${SwitchButton} {
     width: 2.2rem;
+  }
+
+  @media (max-width: 48rem) {
+    width: 1.8rem;
+    height: 1rem;
+    border-width: 0.0625rem;
   }
 `
 

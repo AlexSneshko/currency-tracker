@@ -6,31 +6,35 @@ describe('Home Page', () => {
   beforeEach(() => {
     cy.visit('/')
   })
-  it('the elements of the Home page should be visible', () => {
-    const currencyCount = 10
 
-    cy.get('.sc-dAOort').should('be.visible')
-    cy.get('[data-cy="currencyCard"]')
-      .should('be.visible')
-      .its('length')
-      .should('eq', 1)
-    cy.get('[data-cy="currencyItem"]')
+  it('the elements of the Home page should be visible', () => {
+    const currencyCount = 9
+
+    cy.wait(2000)
+    cy.get('[data-cy="currency-card"]')
       .should('be.visible')
       .its('length')
       .should('eq', currencyCount)
   })
 
   it('when you click on the currency, a modal window should open', () => {
-    cy.get('[data-cy="currencyCard"] > :nth-child(1)').click()
-    cy.get('[data-cy="modalCurrency"]').should('be.visible')
+    cy.get('[data-cy="currency-card"]:nth-child(3)').click()
+    cy.get('[data-cy="modal"]').should('be.visible')
   })
 
   it('the operation when clicking on select must be correct (selecting the currency and getting the conversion value)', () => {
-    cy.get('[data-cy="currencyCard"] > :nth-child(1)').click()
-    cy.get('[data-cy="currencySelect"]').should('be.visible').click()
-    cy.get('[data-cy="selectCurrencyOption"] > :nth-child(1)').click()
+    cy.get('[data-cy="currency-card"]:nth-child(3)').click()
+    cy.get('[data-cy="currency-select"]').should('be.visible').select(1)
 
-    cy.wait(waitSecValue)
-    cy.get('[data-cy="modalConvertValue"]').should('be.visible')
+    cy.get('[data-cy="amount-input"]').clear().type('2')
+
+    cy.get('[data-cy="modal-convert-value"]').should('be.visible')
+  })
+
+  it('close a modal  window', () => {
+    cy.get('[data-cy="currency-card"]:nth-child(3)').click()
+    cy.get('[data-cy="modal"]').should('be.visible')
+    cy.get('button').click()
+    cy.get('[data-cy="modal"]').should('not.exist')
   })
 })

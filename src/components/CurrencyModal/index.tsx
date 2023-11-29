@@ -41,15 +41,18 @@ const CurrencyModal: React.FC<CurrencyModalProps> = ({
         onChange={onInputhange}
         type="number"
         data-testid="amount-input"
+        data-cy="amount-input"
       />
       <br />
       <br />
-      <select onChange={onSelectChange}>
+      <select onChange={onSelectChange} data-cy="currency-select">
         {Object.keys(currencies).map((key) => (
-          <option value={key}>{key}</option>
+          <option value={key} data-cy="select-currency-option">
+            {key}
+          </option>
         ))}
       </select>
-      <span>: {result}</span>
+      <span data-cy="modal-convert-value">: {result}</span>
     </Modal>
   )
 }

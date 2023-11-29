@@ -1,7 +1,6 @@
 import { AxiosError } from 'axios'
 
-import { ALL_CURRENT_RATES_URL, HISTORICAL_OHLCV } from '@/constants/api'
-import { CurrencyCode } from '@/types/currency'
+import { HISTORICAL_OHLCV } from '@/constants/api'
 
 import { coinApiAxiosInstance } from './coinApiAxiosInstance'
 

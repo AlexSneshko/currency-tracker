@@ -9,7 +9,7 @@ import {
   Title,
   Tooltip,
 } from 'chart.js'
-import { FC, memo } from 'react'
+import React, { FC, memo } from 'react'
 import { Bar } from 'react-chartjs-2'
 
 import { CurrencyChartResponse } from '@/types/api'
@@ -145,7 +145,7 @@ export const BarChart: FC<CurrencyChartProps> = memo(({ dataChart, code }) => {
   }
 
   return (
-    <Container>
+    <Container data-cy="bar-chart">
       <Bar
         data={data}
         options={options}

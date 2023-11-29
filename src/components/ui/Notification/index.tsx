@@ -45,7 +45,11 @@ class Notification
     const { showSnackbar } = this.state
 
     return ReactDOM.createPortal(
-      <StyledNotification show={showSnackbar} type={type}>
+      <StyledNotification
+        show={showSnackbar}
+        type={type}
+        data-cy="notification"
+      >
         <div>{message}</div>
       </StyledNotification>,
       document.getElementById('portal') as HTMLElement

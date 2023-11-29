@@ -9,10 +9,15 @@ export const StyledFooter = styled.footer`
 export const FooterContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 48rem) {
+    flex-direction: column;
+  }
 `
 
 export const FooterCompanyInfoBlock = styled.div`
-  width: 30rem;
+  max-width: 30rem;
+  width: 100%;
   margin-right: 6.5rem;
 
   img {
@@ -26,11 +31,19 @@ export const FooterCompanyTitle = styled.span`
   font-weight: 600;
   font-size: 1.625rem;
   text-align: right;
+
+  @media (max-width: 48rem) {
+    font-size: 1.25rem;
+  }
 `
 
 export const FooterCompanyText = styled.p`
   font-size: 1.5rem;
   font-weight: 300;
+
+  @media (max-width: 48rem) {
+    display: none;
+  }
 `
 
 export const FooterTableLinks = styled.table`
@@ -49,8 +62,15 @@ export const FooterTableLinks = styled.table`
     color: #898989;
     font-size: 1.5rem;
   }
+
+  @media (max-width: 48rem) {
+    display: none;
+  }
 `
 
-export const CopyrRightText = styled.p`
+export const CopyRightText = styled.p`
   text-align: center;
+  color: #898989;
+  font-size: 1rem;
+  font-weight: 400;
 `

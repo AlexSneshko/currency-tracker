@@ -26,7 +26,7 @@ const CurrencyGrid: React.FC<CurrencyGridProps> = ({
   currencies,
 }) => {
   return (
-    <StyledCurrencyGlidContainer>
+    <StyledCurrencyGlidContainer data-cy="currency-grid">
       <CurrencyTitle>{title}</CurrencyTitle>
       <StyledCurrencyGrid>
         {Object.values(currencies).map((currencyInfo) => (

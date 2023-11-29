@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import logo from '@/assets/currency-tracker-icon.svg'
 
 import {
+  CopyRightText,
   FooterCompanyInfoBlock,
   FooterCompanyText,
   FooterCompanyTitle,
@@ -10,6 +11,7 @@ import {
   FooterTableLinks,
   StyledFooter,
 } from './styled'
+import React from 'react'
 
 const Footer = () => {
   return (
@@ -60,6 +62,7 @@ const Footer = () => {
           </tbody>
         </FooterTableLinks>
       </FooterContainer>
+      <CopyRightText>Startsup © 2023-2024, All Rights Reserved</CopyRightText>
     </StyledFooter>
   )
 }

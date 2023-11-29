@@ -17,7 +17,7 @@ const Modal: React.FC<ModalProps> = ({ children, open, onClose }) => {
   return ReactDOM.createPortal(
     <>
       <ModalOverlay />
-      <StyledModal>
+      <StyledModal data-cy="modal">
         <CloseModalButton onClick={onClose}>X</CloseModalButton>
         {children}
       </StyledModal>

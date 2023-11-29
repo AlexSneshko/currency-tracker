@@ -19,6 +19,13 @@ export const StyledCurrencyCard = styled.div`
     margin: 0;
     width: 5rem;
   }
+
+  @media (max-width: 48rem) {
+    padding: 0.71rem;
+    img {
+      width: 1.88rem;
+    }
+  }
 `
 
 export const CurrencyInfoBlock = styled.div`
@@ -31,6 +38,10 @@ export const CurrencyName = styled.p`
   font-size: 2.2rem;
   font-weight: 400;
   text-align: left;
+
+  @media (max-width: 48rem) {
+    font-size: 0.82rem;
+  }
 `
 
 export const CurrencyValue = styled.p`
@@ -38,4 +49,8 @@ export const CurrencyValue = styled.p`
   font-size: 2rem;
   font-weight: 300;
   text-align: left;
+
+  @media (max-width: 48rem) {
+    font-size: 0.75rem;
+  }
 `

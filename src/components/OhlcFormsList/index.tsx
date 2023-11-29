@@ -56,7 +56,7 @@ class OhlcFormsList extends Component<OhlcFormsListProps, OhlcFormsListState> {
     if (!this.state.chartDayDataRecords) return null
 
     return (
-      <StyledOhlcFormsList>
+      <StyledOhlcFormsList data-cy="ohlc-forms-list">
         <ChartChangesSubmitButton onClick={this.onSubmit}>
           Submit
         </ChartChangesSubmitButton>

@@ -14,6 +14,11 @@ export const StyledCurrencyGrid = styled.div`
   row-gap: 3.5rem;
   column-gap: 11.5rem;
   justify-content: center;
+
+  @media (max-width: 48rem) {
+    grid-template-columns: 1fr;
+    row-gap: 1rem;
+  }
 `
 
 export const CurrencyTitle = styled.h1`

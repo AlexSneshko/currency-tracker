@@ -44,6 +44,7 @@ class OhlcForm extends Component<Readonly<OhlcFormProps>> {
                 name={price_name}
                 value={price_value}
                 onChange={(event) => this.onInputChange(event)}
+                data-cy={`input-${price_name}`}
               />
             </div>
           ))}

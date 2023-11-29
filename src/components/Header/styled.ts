@@ -10,6 +10,14 @@ export const HeaderContainer = styled.header`
   max-width: 78rem;
   padding: 2rem 6rem;
   margin: 0 auto;
+
+  @media (max-width: 48rem) {
+    padding: 0.6rem 1.75rem;
+
+    img {
+      width: 0.75rem;
+    }
+  }
 `
 
 export const StyledNav = styled.nav`
@@ -33,5 +41,9 @@ export const StyledNavLink = styled(NavLink)`
 
   &.active {
     ${primaryTextColor}
+  }
+
+  @media (max-width: 48rem) {
+    font-size: 0.625rem;
   }
 `

@@ -24,7 +24,7 @@ describe('Currency Card', () => {
   })
 
   test('renders stocks CurrencyCard component', () => {
-    const { getByText, getByAltText } = render(
+    const { getByText } = render(
       <CurrencyCard type="stocks" currency={currency} />
     )
 

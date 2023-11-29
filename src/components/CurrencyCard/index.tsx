@@ -23,7 +23,10 @@ const CurrencyCard: React.FC<CurrencyCardProps> = ({ type, currency }) => {
 
   return (
     <>
-      <StyledCurrencyCard onClick={() => setIsModalOpen(true)}>
+      <StyledCurrencyCard
+        onClick={() => setIsModalOpen(true)}
+        data-cy="currency-card"
+      >
         <img src={currency.icon} />
         <CurrencyInfoBlock>
           <CurrencyName>{currency.name}</CurrencyName>
