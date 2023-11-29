@@ -18,18 +18,6 @@ export const fetchChartDataFromApi = async () => {
 
     return currentRates.data
   } catch (error) {
-    if (error instanceof AxiosError) {
-      if (error.response) {
-        console.log(error.response.data)
-        console.log(error.response.status)
-        console.log(error.response.headers)
-      } else if (error.request) {
-        console.log(error.request)
-      } else {
-        console.log('Error', error.message)
-      }
-      console.log(error.config)
-    }
-    return null
+    console.log(error)
   }
 }

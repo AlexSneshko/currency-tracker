@@ -9,10 +9,10 @@ interface ElasticSearchResultProps {
   ) => void
 }
 
-const ElasticSearchResult = ({
+const ElasticSearchResult: React.FC<ElasticSearchResultProps> = ({
   result,
   onSelectResult,
-}: ElasticSearchResultProps) => {
+}) => {
   return (
     <SearchResultContainer
       onClick={() => onSelectResult(result)}

@@ -1,7 +1,7 @@
 import React, { Component, ReactNode } from 'react'
 import { connect } from 'react-redux'
 
-import { BarChart } from '@/components/CurrencyChart'
+import BarChart from '@/components/CurrencyChart'
 import OhlcFormsList from '@/components/OhlcFormsList'
 import ForwardedNotification from '@/components/ui/Notification'
 import { fetchChartData } from '@/store/action-creators/chartData'
@@ -11,7 +11,7 @@ import { CurrencyChartResponse } from '@/types/api'
 import { observer } from '@/utils/observer'
 
 import { TimelinePageLayout } from './styled'
-import { TimeUpdated } from '@/components/TimeUpdated'
+import TimeUpdated from '@/components/TimeUpdated'
 
 const mapStateToProps = (state: RootState): ChartDataState => state.chartData
 

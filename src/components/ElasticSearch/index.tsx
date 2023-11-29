@@ -8,7 +8,7 @@ export interface ElasticSearchProps {
   onSearchResult: (result: string) => void
 }
 
-function ElasticSearch({ onSearchResult }: ElasticSearchProps) {
+const ElasticSearch: React.FC<ElasticSearchProps> = ({ onSearchResult }) => {
   const [results, setResults] = useState([])
   const [selectedResult, setSelectedResult] = useState<string>('')
 

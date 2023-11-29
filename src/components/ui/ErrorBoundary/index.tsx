@@ -9,10 +9,7 @@ export interface ErrorBoundaryState {
   errorMessage: string
 }
 
-export class ErrorBoundary extends Component<
-  ErrorBoundaryProps,
-  ErrorBoundaryState
-> {
+class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   constructor(props: ErrorBoundaryProps) {
     super(props)
     this.state = {
@@ -47,3 +44,5 @@ export class ErrorBoundary extends Component<
     )
   }
 }
+
+export default ErrorBoundary

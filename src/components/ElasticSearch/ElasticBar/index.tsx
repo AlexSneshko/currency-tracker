@@ -26,7 +26,11 @@ const getUniqueBanks = (): Array<Bank> => {
   return uniqueBanks
 }
 
-const ElasticBar = ({ setResults, initValue, onClear }: ElasticBarProps) => {
+const ElasticBar: React.FC<ElasticBarProps> = ({
+  setResults,
+  initValue,
+  onClear,
+}) => {
   const [input, setInput] = useState<string>(initValue)
 
   useEffect(() => {

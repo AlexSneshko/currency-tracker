@@ -18,7 +18,7 @@ interface BankMapState {
   selectedBank: string | null
 }
 
-class BankMap extends Component<{}, BankMapState> {
+class BankMap extends Component<Readonly<BankMapState>> {
   state = {
     selectedCurrency: null,
     selectedBank: '',

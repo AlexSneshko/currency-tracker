@@ -10,7 +10,7 @@ interface ElasticResultsList {
   ) => void
 }
 
-const ElasticResultsList = ({
+const ElasticResultsList: React.FC<ElasticResultsList> = ({
   results,
   onSelectResult,
 }: ElasticResultsList) => {

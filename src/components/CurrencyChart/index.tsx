@@ -45,7 +45,7 @@ interface DataElem {
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
-export const BarChart: FC<CurrencyChartProps> = memo(({ dataChart, code }) => {
+const BarChart: FC<CurrencyChartProps> = memo(({ dataChart, code }) => {
   if (dataChart.length === 0) return null
 
   const data: Data = {
@@ -155,3 +155,5 @@ export const BarChart: FC<CurrencyChartProps> = memo(({ dataChart, code }) => {
     </Container>
   )
 })
+
+export default BarChart

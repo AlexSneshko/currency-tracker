@@ -8,7 +8,7 @@ import { fetchCurrencies } from '@/store/action-creators/currency'
 import { CurrencyWithValuesRecords } from '@/types/currency'
 
 import { HomePageLayout } from './styled'
-import { TimeUpdated } from '@/components/TimeUpdated'
+import TimeUpdated from '@/components/TimeUpdated'
 import Loader from '@/components/ui/Loader'
 
 export const CurrenciesContext = createContext<CurrencyWithValuesRecords>({})

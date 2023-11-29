@@ -9,7 +9,7 @@ interface TimeUpdatedProps {
   type: 'currency' | 'chart'
 }
 
-export const TimeUpdated = ({ type }: TimeUpdatedProps) => {
+const TimeUpdated: React.FC<TimeUpdatedProps> = ({ type }) => {
   const state = useTypedSelector((state: RootState) =>
     type === 'currency' ? state.currency : state.chartData
   )
@@ -27,3 +27,5 @@ export const TimeUpdated = ({ type }: TimeUpdatedProps) => {
     </StyledTimeUpdated>
   )
 }
+
+export default TimeUpdated
