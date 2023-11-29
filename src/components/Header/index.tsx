@@ -5,6 +5,8 @@ import logo from '@/assets/currency-tracker-icon.svg'
 import Switcher from '@/components/ui/Switcher'
 
 import { HeaderContainer, StyledNav, StyledNavLink } from './styled'
+import { router } from '@/routes/Routes'
+import { navLinks } from '@/constants/navLInks'
 
 interface HeaderProps {
   onSwitchTheme: React.ChangeEventHandler<HTMLInputElement>
@@ -19,18 +21,11 @@ const Header: React.FC<HeaderProps> = ({ onSwitchTheme }) => {
         <img src={logo} />
         <StyledNav>
           <ul>
-            <li>
-              <StyledNavLink to={'/'}>Home</StyledNavLink>
-            </li>
-            <li>
-              <StyledNavLink to={'/timeline'}>Timeline</StyledNavLink>
-            </li>
-            <li>
-              <StyledNavLink to={'/bankcard'}>Bank Card</StyledNavLink>
-            </li>
-            <li>
-              <StyledNavLink to={'/contact'}>Contact</StyledNavLink>
-            </li>
+            {navLinks.map((link) => (
+              <StyledNavLink key={link.to} to={link.to}>
+                {link.label}
+              </StyledNavLink>
+            ))}
           </ul>
         </StyledNav>
         <Switcher isOn={theme.title === 'light'} handleToggle={onSwitchTheme} />

@@ -4,6 +4,7 @@ export interface CurrencyState {
   currencies: CurrencyWithValuesRecords
   loading: boolean
   error: null | string
+  lastUpdated: null | Date
 }
 
 export enum CurrecyActionTypes {

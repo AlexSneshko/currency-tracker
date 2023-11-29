@@ -11,6 +11,7 @@ import { CurrencyChartResponse } from '@/types/api'
 import { observer } from '@/utils/observer'
 
 import { TimelinePageLayout } from './styled'
+import { TimeUpdated } from '@/components/TimeUpdated'
 
 const mapStateToProps = (state: RootState): ChartDataState => state.chartData
 
@@ -107,6 +108,7 @@ class TimelinePage extends Component<TimelinePageProps, TimelinePageState> {
 
     return (
       <TimelinePageLayout>
+        <TimeUpdated type="chart" />
         <ForwardedNotification
           type={this.state.notification.notificationStatus}
           message={this.state.notification.notificationMessage}

@@ -4,6 +4,7 @@ export interface ChartDataState {
   chartData: CurrencyChartResponse[]
   loading: boolean
   error: null | string
+  lastUpdated: null | Date
 }
 
 export enum ChartDataActionTypes {

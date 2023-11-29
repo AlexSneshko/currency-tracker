@@ -8,30 +8,29 @@ import { fetchCurrencies } from '@/store/action-creators/currency'
 import { CurrencyWithValuesRecords } from '@/types/currency'
 
 import { HomePageLayout } from './styled'
-import { getCurrencies } from '@/api/getCurrencies'
+import { TimeUpdated } from '@/components/TimeUpdated'
+import Loader from '@/components/ui/Loader'
 
 export const CurrenciesContext = createContext<CurrencyWithValuesRecords>({})
 
 const HomePage = () => {
-  //   const { currencies, error, loading } = useTypedSelector(
-  //     (state) => state.currency
-  //   )
+  const { currencies, error, loading } = useTypedSelector(
+    (state) => state.currency
+  )
 
-  //   const dispatch = useDispatch()
-
-  const [currencies, setCurrencies] = useState({})
+  const dispatch = useDispatch()
 
   useEffect(() => {
-    // dispatch(fetchCurrencies())
-    getCurrencies().then((res) => setCurrencies(res))
+    dispatch(fetchCurrencies())
   }, [])
+
+  if (loading) return <Loader />
 
   return (
     <HomePageLayout>
-      <CurrenciesContext.Provider value={currencies}>
-        <CurrencyGrid title="Stocks" type="stocks" currencies={stocks} />
-        <CurrencyGrid title="Quotes" type="quotes" currencies={currencies} />
-      </CurrenciesContext.Provider>
+      <TimeUpdated type="currency" />
+      <CurrencyGrid title="Stocks" type="stocks" currencies={stocks} />
+      <CurrencyGrid title="Quotes" type="quotes" currencies={currencies} />
     </HomePageLayout>
   )
 }

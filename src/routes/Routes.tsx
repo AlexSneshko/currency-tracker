@@ -1,5 +1,5 @@
 import React from 'react'
-import { createBrowserRouter } from 'react-router-dom'
+import { Navigate, createBrowserRouter } from 'react-router-dom'
 
 import App from '@/App'
 import BankCardPage from '@/pages/BankCardPage'
@@ -7,16 +7,18 @@ import ContactPage from '@/pages/ContactPage'
 import ErrorPage from '@/pages/ErrorPage/ErrorPage'
 import HomePage from '@/pages/HomePage'
 import TimelinePage from '@/pages/TimelinePage'
+import { PATH } from '@/constants/path'
 
 export const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
-      { path: '', element: <HomePage /> },
-      { path: 'timeline', element: <TimelinePage /> },
-      { path: 'bankcard', element: <BankCardPage /> },
-      { path: 'contact', element: <ContactPage /> },
+      { path: '/', element: <Navigate to={PATH.HOME} /> },
+      { path: PATH.HOME, element: <HomePage /> },
+      { path: PATH.TIME_LINE, element: <TimelinePage /> },
+      { path: PATH.BANK_CARD, element: <BankCardPage /> },
+      { path: PATH.CONTACTS, element: <ContactPage /> },
     ],
   },
 ])

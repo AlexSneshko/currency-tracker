@@ -8,6 +8,7 @@ const initialState: CurrencyState = {
   currencies: {},
   loading: false,
   error: null,
+  lastUpdated: null,
 }
 
 export const currencyReducer = (
@@ -16,11 +17,16 @@ export const currencyReducer = (
 ): CurrencyState => {
   switch (action.type) {
     case CurrecyActionTypes.FETCH_CURRENCIES:
-      return { loading: true, error: null, currencies: {} }
+      return { ...state, loading: true, error: null, currencies: {} }
     case CurrecyActionTypes.FETCH_CURRENCIES_SUCCESS:
-      return { loading: false, error: null, currencies: action.payload }
+      return {
+        loading: false,
+        error: null,
+        currencies: action.payload,
+        lastUpdated: new Date(),
+      }
     case CurrecyActionTypes.FETCH_CURRENCIES_ERROR:
-      return { loading: false, error: action.payload, currencies: {} }
+      return { ...state, loading: false, error: action.payload, currencies: {} }
     default:
       return state
   }

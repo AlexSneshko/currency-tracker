@@ -8,6 +8,7 @@ const initialState: ChartDataState = {
   chartData: [],
   loading: false,
   error: null,
+  lastUpdated: null,
 }
 
 export const chartDataReducer = (
@@ -18,7 +19,12 @@ export const chartDataReducer = (
     case ChartDataActionTypes.FETCH_CHART_DATA:
       return { ...state, loading: true }
     case ChartDataActionTypes.FETCH_CHART_DATA_SUCCESS:
-      return { ...state, loading: false, chartData: action.payload }
+      return {
+        ...state,
+        loading: false,
+        chartData: action.payload,
+        lastUpdated: new Date(),
+      }
     case ChartDataActionTypes.FETCH_CHART_DATA_ERROR:
       return { ...state, loading: false, error: action.payload }
     default:
