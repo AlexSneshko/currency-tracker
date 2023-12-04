@@ -7,6 +7,9 @@ module.exports = {
     react: {
       version: 'detect',
     },
+    'import/resolver': {
+      typescript: {},
+    },
   },
   extends: [
     'plugin:react/recommended',
@@ -21,7 +24,14 @@ module.exports = {
     'plugin:jest/recommended',
     'eslint:recommended',
   ],
-  plugins: ['react', 'prettier', '@typescript-eslint', 'jest'],
+  plugins: [
+    'react',
+    'prettier',
+    '@typescript-eslint',
+    'jest',
+    'simple-import-sort',
+    'import',
+  ],
   env: {
     browser: true,
     es6: true,
@@ -35,5 +45,9 @@ module.exports = {
     'react/jsx-uses-react': 'off',
     'react/react-in-jsx-scope': 'off',
     '@typescript-eslint/explicit-module-boundary-types': 'off',
+    'simple-import-sort/imports': 'error',
+    'simple-import-sort/exports': 'error',
+    'jsx-a11y/label-has-associated-control': 'off',
+    'jsx-a11y/label-has-for': 'off',
   },
 }
