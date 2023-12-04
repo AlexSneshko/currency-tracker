@@ -13,6 +13,9 @@ export default createGlobalStyle`
     color: ${(props) => props.theme.colors.text};
     font-family: 'Poppins', sans-serif;
     line-height: normal;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 20rem;
   }
 
   --primary: linear-gradient(90deg, #00ce2c 0.18%, #aedf23 49.3%, #a3dc00 99.88%);

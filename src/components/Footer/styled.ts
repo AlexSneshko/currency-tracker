@@ -3,7 +3,12 @@ import styled from 'styled-components'
 import { container, primaryTextColor } from '@/styles/global'
 
 export const StyledFooter = styled.footer`
-  ${container}
+  max-width: 76rem;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
 `
 
 export const FooterContainer = styled.div`
