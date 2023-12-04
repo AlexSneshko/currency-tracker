@@ -1,3 +1,4 @@
+import React, { FC, memo } from 'react'
 import {
   BarElement,
   CategoryScale,
@@ -9,12 +10,10 @@ import {
   Title,
   Tooltip,
 } from 'chart.js'
-import React, { FC, memo } from 'react'
-import { Bar } from 'react-chartjs-2'
 
 import { CurrencyChartResponse } from '@/types/api'
 
-import { Container } from './styled'
+import { Container, StyledBar } from './styled'
 
 interface CurrencyChartProps {
   dataChart: CurrencyChartResponse[]
@@ -45,7 +44,7 @@ interface DataElem {
 
 ChartJS.register(CategoryScale, LinearScale, BarElement, Title, Tooltip, Legend)
 
-const BarChart: FC<CurrencyChartProps> = memo(({ dataChart, code }) => {
+export const BarChart: FC<CurrencyChartProps> = memo(({ dataChart, code }) => {
   if (dataChart.length === 0) return null
 
   const data: Data = {
@@ -146,14 +145,7 @@ const BarChart: FC<CurrencyChartProps> = memo(({ dataChart, code }) => {
 
   return (
     <Container data-cy="bar-chart">
-      <Bar
-        data={data}
-        options={options}
-        plugins={[candlestick]}
-        style={{ margin: 0 }}
-      />
+      <StyledBar data={data} options={options} plugins={[candlestick]} />
     </Container>
   )
 })
-
-export default BarChart

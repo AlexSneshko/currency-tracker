@@ -1,15 +1,15 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useEffect } from 'react'
 import { useDispatch } from 'react-redux'
 
-import CurrencyGrid from '@/components/CurrencyGrid'
+import { CurrencyGrid } from '@/components/CurrencyGrid'
+import { TimeUpdated } from '@/components/TimeUpdated'
+import { Loader } from '@/components/ui/Loader'
 import { stocks } from '@/constants/stocks'
 import { useTypedSelector } from '@/hooks/useTypedSelector'
 import { fetchCurrencies } from '@/store/action-creators/currency'
 import { CurrencyWithValuesRecords } from '@/types/currency'
 
 import { HomePageLayout } from './styled'
-import TimeUpdated from '@/components/TimeUpdated'
-import Loader from '@/components/ui/Loader'
 
 export const CurrenciesContext = createContext<CurrencyWithValuesRecords>({})
 

@@ -7,7 +7,7 @@ export interface SwitcherProps {
   handleToggle: React.ChangeEventHandler<HTMLInputElement>
 }
 
-const Switcher: React.FC<SwitcherProps> = ({ isOn, handleToggle }) => {
+export const Switcher: React.FC<SwitcherProps> = ({ isOn, handleToggle }) => {
   const switchNew = useId()
   return (
     <>
@@ -18,5 +18,3 @@ const Switcher: React.FC<SwitcherProps> = ({ isOn, handleToggle }) => {
     </>
   )
 }
-
-export default Switcher

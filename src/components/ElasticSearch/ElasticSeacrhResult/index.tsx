@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { SearchResultContainer } from './styled'
 
 interface ElasticSearchResultProps {
@@ -9,18 +10,18 @@ interface ElasticSearchResultProps {
   ) => void
 }
 
-const ElasticSearchResult: React.FC<ElasticSearchResultProps> = ({
+export const ElasticSearchResult: React.FC<ElasticSearchResultProps> = ({
   result,
   onSelectResult,
 }) => {
+  const onSearchResultClick = () => onSelectResult(result)
+
   return (
     <SearchResultContainer
-      onClick={() => onSelectResult(result)}
+      onClick={onSearchResultClick}
       data-testid={`result-${result}`}
     >
       {result}
     </SearchResultContainer>
   )
 }
-
-export default ElasticSearchResult

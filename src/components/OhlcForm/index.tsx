@@ -9,7 +9,7 @@ interface OhlcFormProps {
   setChanges: (newDailyOhlc: CurrencyChartResponse) => void
 }
 
-class OhlcForm extends Component<Readonly<OhlcFormProps>> {
+export class OhlcForm extends Component<OhlcFormProps> {
   constructor(props: OhlcFormProps) {
     super(props)
   }
@@ -28,22 +28,22 @@ class OhlcForm extends Component<Readonly<OhlcFormProps>> {
     return `${month < 10 ? `0${month}` : month}.${day < 10 ? `0${day}` : day}`
   }
 
-  render(): React.ReactNode {
+  render = () => {
     return (
       <StyledOhlcForm data-testid="ohlc-form">
         <span>{this.toDDMMformat(this.props.dailyOhlc.time_period_start)}</span>
         {Object.entries(this.props.dailyOhlc)
-          .filter(([price_name, price_value]) =>
-            price_name.startsWith('price_')
-          )
+          .filter(([price_name, _]) => price_name.startsWith('price_'))
           .map(([price_name, price_value]) => (
-            <div>
+            <div
+              key={`${this.props.dailyOhlc.time_period_start}-${price_name}`}
+            >
               <span>{price_name}: </span>
               <input
                 type="number"
                 name={price_name}
                 value={price_value}
-                onChange={(event) => this.onInputChange(event)}
+                onChange={(e) => this.onInputChange(e)}
                 data-cy={`input-${price_name}`}
               />
             </div>
@@ -52,5 +52,3 @@ class OhlcForm extends Component<Readonly<OhlcFormProps>> {
     )
   }
 }
-
-export default OhlcForm

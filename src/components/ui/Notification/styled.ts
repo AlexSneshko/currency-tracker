@@ -1,5 +1,9 @@
 import styled, { css, keyframes } from 'styled-components'
 
+import { NotificationStatuses } from '@/types/notifacation'
+
+import { NotificationVisability } from '.'
+
 const fadeIn = keyframes`
 from {
       bottom: 0;
@@ -22,8 +26,8 @@ const fadeOut = keyframes`
   `
 
 export const StyledNotification = styled.div<{
-  show: boolean
-  type: 'success' | 'error'
+  show: NotificationVisability
+  type: NotificationStatuses
 }>`
   position: fixed;
   right: 1rem;
@@ -34,7 +38,7 @@ export const StyledNotification = styled.div<{
   display: flex;
   align-items: center;
   text-align: center;
-  visibility: ${(props) => (props.show ? 'visible' : 'hidden')};
+  visibility: ${(props) => props.show};
   border: 0.0625rem solid ${(props) => props.theme.colors.text};
   background-color: ${(props) =>
     props.type === 'success' ? '#65C276' : '#E64B4B'};

@@ -1,13 +1,13 @@
 import React from 'react'
-import { Navigate, createBrowserRouter } from 'react-router-dom'
+import { createBrowserRouter, Navigate } from 'react-router-dom'
 
 import App from '@/App'
+import { PATH } from '@/constants/path'
 import BankCardPage from '@/pages/BankCardPage'
 import ContactPage from '@/pages/ContactPage'
 import ErrorPage from '@/pages/ErrorPage/ErrorPage'
 import HomePage from '@/pages/HomePage'
 import TimelinePage from '@/pages/TimelinePage'
-import { PATH } from '@/constants/path'
 
 export const router = createBrowserRouter([
   {

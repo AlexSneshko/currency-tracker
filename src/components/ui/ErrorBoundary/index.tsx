@@ -9,7 +9,10 @@ export interface ErrorBoundaryState {
   errorMessage: string
 }
 
-class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
+export class ErrorBoundary extends Component<
+  ErrorBoundaryProps,
+  ErrorBoundaryState
+> {
   constructor(props: ErrorBoundaryProps) {
     super(props)
     this.state = {
@@ -18,19 +21,19 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     }
   }
 
-  static getDerivedStateFromError(error: Error) {
+  static getDerivedStateFromError = (error: Error) => {
     return {
       hasError: true,
       errorMessage: error.message,
     }
   }
 
-  componentDidCatch(error: Error, errorInfo: ErrorInfo) {
+  componentDidCatch = (error: Error, errorInfo: ErrorInfo) => {
     console.error('Error: ', error)
     console.error('ErrorInfo: ', errorInfo)
   }
 
-  render() {
+  render = () => {
     const { hasError, errorMessage } = this.state
     const { children } = this.props
 
@@ -44,5 +47,3 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
     )
   }
 }
-
-export default ErrorBoundary

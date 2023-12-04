@@ -1,15 +1,16 @@
 import React from 'react'
 
-import { RootState } from '@/store/reducers'
-import { useTypedSelector } from '@/hooks/useTypedSelector'
-import { LastUpdatedText, StyledTimeUpdated, TimeUpdatedMarker } from './styled'
 import { dateToHHMM } from '@/helpers/dateToHHMM'
+import { useTypedSelector } from '@/hooks/useTypedSelector'
+import { RootState } from '@/store/reducers'
+
+import { LastUpdatedText, StyledTimeUpdated, TimeUpdatedMarker } from './styled'
 
 interface TimeUpdatedProps {
   type: 'currency' | 'chart'
 }
 
-const TimeUpdated: React.FC<TimeUpdatedProps> = ({ type }) => {
+export const TimeUpdated: React.FC<TimeUpdatedProps> = ({ type }) => {
   const state = useTypedSelector((state: RootState) =>
     type === 'currency' ? state.currency : state.chartData
   )
@@ -27,5 +28,3 @@ const TimeUpdated: React.FC<TimeUpdatedProps> = ({ type }) => {
     </StyledTimeUpdated>
   )
 }
-
-export default TimeUpdated

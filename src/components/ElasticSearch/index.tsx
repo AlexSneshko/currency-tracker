@@ -1,18 +1,22 @@
 import React, { useState } from 'react'
 
-import ElasticBar from './ElasticBar'
-import ElasticResultsList from './ElasticResultsList'
+import { Bank } from '@/types/bank'
+
+import { ElasticBar } from './ElasticBar'
+import { ElasticResultsList } from './ElasticResultsList'
 import { StyledElasticSearchContainer } from './styled'
 
 export interface ElasticSearchProps {
   onSearchResult: (result: string) => void
 }
 
-const ElasticSearch: React.FC<ElasticSearchProps> = ({ onSearchResult }) => {
-  const [results, setResults] = useState([])
+export const ElasticSearch: React.FC<ElasticSearchProps> = ({
+  onSearchResult,
+}) => {
+  const [results, setResults] = useState<Array<Bank>>([])
   const [selectedResult, setSelectedResult] = useState<string>('')
 
-  const onSelectResult = (result: string) => {
+  const onSelectResult = (result: string) => () => {
     setResults([])
 
     setSelectedResult(result)
@@ -20,9 +24,7 @@ const ElasticSearch: React.FC<ElasticSearchProps> = ({ onSearchResult }) => {
     onSearchResult(result)
   }
 
-  const onClear = () => {
-    onSelectResult('')
-  }
+  const onClear = () => onSelectResult('')
 
   return (
     <StyledElasticSearchContainer>
@@ -37,5 +39,3 @@ const ElasticSearch: React.FC<ElasticSearchProps> = ({ onSearchResult }) => {
     </StyledElasticSearchContainer>
   )
 }
-
-export default ElasticSearch

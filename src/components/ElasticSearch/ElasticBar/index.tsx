@@ -26,7 +26,7 @@ const getUniqueBanks = (): Array<Bank> => {
   return uniqueBanks
 }
 
-const ElasticBar: React.FC<ElasticBarProps> = ({
+export const ElasticBar: React.FC<ElasticBarProps> = ({
   setResults,
   initValue,
   onClear,
@@ -60,7 +60,7 @@ const ElasticBar: React.FC<ElasticBarProps> = ({
   const onClearBar = (event: React.MouseEvent<HTMLButtonElement>) => {
     setInput('')
     setResults([])
-    onClear()
+    onClear(event)
   }
 
   return (
@@ -78,5 +78,3 @@ const ElasticBar: React.FC<ElasticBarProps> = ({
     </ElasticInputWrapper>
   )
 }
-
-export default ElasticBar

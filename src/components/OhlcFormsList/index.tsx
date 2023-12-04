@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import { CurrencyChartResponse } from '@/types/api'
 
-import OhlcForm from '../OhlcForm'
+import { OhlcForm } from '../OhlcForm'
 import { ChartChangesSubmitButton, StyledOhlcFormsList } from './styled'
 
 interface OhlcFormsListProps {
@@ -14,7 +14,10 @@ interface OhlcFormsListState {
   chartDayDataRecords: Record<string, CurrencyChartResponse> | null
 }
 
-class OhlcFormsList extends Component<OhlcFormsListProps, OhlcFormsListState> {
+export class OhlcFormsList extends Component<
+  OhlcFormsListProps,
+  OhlcFormsListState
+> {
   constructor(props: OhlcFormsListProps) {
     super(props)
 
@@ -23,7 +26,7 @@ class OhlcFormsList extends Component<OhlcFormsListProps, OhlcFormsListState> {
     }
   }
 
-  componentDidMount(): void {
+  componentDidMount = () => {
     const dateInfoData = this.props.ohlcChartData.reduce(
       (allCharts, dailyChart) => {
         return {
@@ -37,31 +40,32 @@ class OhlcFormsList extends Component<OhlcFormsListProps, OhlcFormsListState> {
     this.setState({ chartDayDataRecords: dateInfoData })
   }
 
-  onNewChartFormDataChange = (newData: CurrencyChartResponse) => {
+  onNewChartFormDataChange = (newDailyData: CurrencyChartResponse) => {
     this.setState({
       chartDayDataRecords: {
         ...this.state.chartDayDataRecords,
-        [newData.time_period_start]: newData,
+        [newDailyData.time_period_start]: newDailyData,
       },
     })
   }
 
-  onSubmit = (event: React.MouseEvent<HTMLButtonElement>) => {
+  onSubmit = () => {
     if (this.state.chartDayDataRecords) {
       this.props.onSubmitChanges(Object.values(this.state.chartDayDataRecords))
     }
   }
 
-  render(): React.ReactNode {
+  render = () => {
     if (!this.state.chartDayDataRecords) return null
 
     return (
       <StyledOhlcFormsList data-cy="ohlc-forms-list">
         <ChartChangesSubmitButton onClick={this.onSubmit}>
-          Submit
+          Submito
         </ChartChangesSubmitButton>
         {Object.values(this.state.chartDayDataRecords).map((ohlcChartDaily) => (
           <OhlcForm
+            key={ohlcChartDaily.time_open}
             dailyOhlc={ohlcChartDaily}
             setChanges={this.onNewChartFormDataChange}
           />
@@ -70,5 +74,3 @@ class OhlcFormsList extends Component<OhlcFormsListProps, OhlcFormsListState> {
     )
   }
 }
-
-export default OhlcFormsList

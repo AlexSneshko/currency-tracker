@@ -11,7 +11,7 @@ export interface ModalProps {
 
 const portalRoot = document.getElementById('portal') as HTMLElement
 
-const Modal: React.FC<ModalProps> = ({ children, open, onClose }) => {
+export const Modal: React.FC<ModalProps> = ({ children, open, onClose }) => {
   if (!open) return null
 
   return ReactDOM.createPortal(
@@ -25,5 +25,3 @@ const Modal: React.FC<ModalProps> = ({ children, open, onClose }) => {
     portalRoot
   )
 }
-
-export default Modal

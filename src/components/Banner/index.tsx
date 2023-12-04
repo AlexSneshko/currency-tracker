@@ -1,3 +1,5 @@
+import React from 'react'
+
 import logo from '@/assets/currency-tracker-icon.svg'
 
 import {
@@ -7,9 +9,8 @@ import {
   StyledBanner,
   StyledBannerInfoContainer,
 } from './styled'
-import React from 'react'
 
-const Banner = () => {
+export const Banner = () => {
   return (
     <StyledBanner>
       <StyledBannerInfoContainer>
@@ -30,5 +31,3 @@ const Banner = () => {
     </StyledBanner>
   )
 }
-
-export default Banner

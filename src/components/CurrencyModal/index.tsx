@@ -1,21 +1,26 @@
 import React, { useContext, useState } from 'react'
 
+import { Modal, ModalProps } from '@/components/ui/Modal'
 import { roundNumber } from '@/helpers/roundNumber'
 import { CurrenciesContext } from '@/pages/HomePage'
 import { CurrencyCode, CurrencyWithValue } from '@/types/currency'
-
-import Modal, { ModalProps } from '../ui/Modal'
+import { useSelector } from 'react-redux'
+import { store } from '@/store'
+import { RootState } from '@/store/reducers'
+import { StyledModalText } from './styled'
 
 interface CurrencyModalProps extends Omit<ModalProps, 'children'> {
   currency: CurrencyWithValue
 }
 
-const CurrencyModal: React.FC<CurrencyModalProps> = ({
+export const CurrencyModal: React.FC<CurrencyModalProps> = ({
   open,
   onClose,
   currency,
 }) => {
-  const currencies = useContext(CurrenciesContext)
+  const currencies = useSelector(
+    (store: RootState) => store.currency
+  ).currencies
   const [userValue, setUserValue] = useState<number>(1)
   const [selectedCurrencyValue, setSelectedCurrencyValue] = useState<number>(1)
 
@@ -35,7 +40,7 @@ const CurrencyModal: React.FC<CurrencyModalProps> = ({
 
   return (
     <Modal open={open} onClose={onClose}>
-      <span>{currency.name}: </span>
+      <StyledModalText>{currency.name}: </StyledModalText>
       <input
         value={userValue}
         onChange={onInputhange}
@@ -47,14 +52,18 @@ const CurrencyModal: React.FC<CurrencyModalProps> = ({
       <br />
       <select onChange={onSelectChange} data-cy="currency-select">
         {Object.keys(currencies).map((key) => (
-          <option value={key} data-cy="select-currency-option">
+          <option
+            key={`modal-${key}`}
+            value={key}
+            data-cy="select-currency-option"
+          >
             {key}
           </option>
         ))}
       </select>
-      <span data-cy="modal-convert-value">: {result}</span>
+      <StyledModalText data-cy="modal-convert-value">
+        : {result}
+      </StyledModalText>
     </Modal>
   )
 }
-
-export default CurrencyModal

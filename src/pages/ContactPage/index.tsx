@@ -1,3 +1,5 @@
+import React from 'react'
+
 import { socialData } from '@/constants/socials'
 
 import {

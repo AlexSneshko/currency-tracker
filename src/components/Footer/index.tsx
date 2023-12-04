@@ -1,3 +1,4 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 import logo from '@/assets/currency-tracker-icon.svg'
@@ -11,9 +12,8 @@ import {
   FooterTableLinks,
   StyledFooter,
 } from './styled'
-import React from 'react'
 
-const Footer = () => {
+export const Footer = () => {
   return (
     <StyledFooter>
       <FooterContainer>
@@ -66,5 +66,3 @@ const Footer = () => {
     </StyledFooter>
   )
 }
-
-export default Footer

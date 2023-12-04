@@ -1,9 +1,9 @@
-import React, { Component, ReactNode } from 'react'
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import BarChart from '@/components/CurrencyChart'
-import OhlcFormsList from '@/components/OhlcFormsList'
-import ForwardedNotification from '@/components/ui/Notification'
+import { BarChart } from '@/components/CurrencyChart'
+import { OhlcFormsList } from '@/components/OhlcFormsList'
+import { ForwardedNotification } from '@/components/ui/Notification'
 import { fetchChartData } from '@/store/action-creators/chartData'
 import { RootState } from '@/store/reducers'
 import { ChartDataState } from '@/store/types/chartData'
@@ -11,7 +11,9 @@ import { CurrencyChartResponse } from '@/types/api'
 import { observer } from '@/utils/observer'
 
 import { TimelinePageLayout } from './styled'
-import TimeUpdated from '@/components/TimeUpdated'
+import { TimeUpdated } from '@/components/TimeUpdated'
+import { NotificationStatuses } from '@/types/notifacation'
+import { Loader } from '@/components/ui/Loader'
 
 const mapStateToProps = (state: RootState): ChartDataState => state.chartData
 
@@ -26,7 +28,7 @@ interface TimelinePageProps extends ChartDataState {
 interface TimelinePageState {
   data: CurrencyChartResponse[]
   notification: {
-    notificationStatus: 'success' | 'error'
+    notificationStatus: NotificationStatuses
     notificationMessage: string
   }
 }
@@ -39,19 +41,19 @@ class TimelinePage extends Component<TimelinePageProps, TimelinePageState> {
       data: [],
       notification: {
         notificationMessage: '',
-        notificationStatus: 'success',
+        notificationStatus: NotificationStatuses.SUCCESS,
       },
     }
   }
 
-  componentDidMount(): void {
+  componentDidMount = () => {
     this.props.fetchChartData()
     this.setState({ ...this.state, data: this.props.chartData })
 
     observer.attach(this.handleShowSnackbar)
   }
 
-  componentWillUnmount(): void {
+  componentWillUnmount = () => {
     observer.detach(this.handleShowSnackbar)
   }
 
@@ -61,7 +63,7 @@ class TimelinePage extends Component<TimelinePageProps, TimelinePageState> {
     }
   }
 
-  ifFormDataFulfilled = (data: CurrencyChartResponse[]) => {
+  isFormDataFulfilled = (data: CurrencyChartResponse[]) => {
     for (const dailyData of Object.values(data)) {
       for (const field of Object.values(dailyData)) {
         console.log(field)
@@ -74,21 +76,19 @@ class TimelinePage extends Component<TimelinePageProps, TimelinePageState> {
   }
 
   setNewChartFormDataChanges = (newData: CurrencyChartResponse[]) => {
-    console.log(newData)
-    if (this.ifFormDataFulfilled(newData)) {
+    if (this.isFormDataFulfilled(newData)) {
       this.setState({
-        ...this.state,
+        data: newData,
         notification: {
-          notificationStatus: 'success',
+          notificationStatus: NotificationStatuses.SUCCESS,
           notificationMessage: `Data is valid`,
         },
       })
     } else {
       this.setState({
         ...this.state,
-        data: newData,
         notification: {
-          notificationStatus: 'error',
+          notificationStatus: NotificationStatuses.ERROR,
           notificationMessage: 'Invalid chart data',
         },
       })
@@ -97,13 +97,13 @@ class TimelinePage extends Component<TimelinePageProps, TimelinePageState> {
     observer.notify()
   }
 
-  render(): ReactNode {
+  render = () => {
     if (!this.props.chartData) {
       return null
     }
 
     if (this.props.loading) {
-      return null
+      return <Loader />
     }
 
     return (

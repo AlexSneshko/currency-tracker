@@ -1,5 +1,5 @@
 import React from 'react'
-import ElasticSearch from '../../src/components/ElasticSearch'
+import { ElasticSearch } from '../../src/components/ElasticSearch'
 
 import { render, fireEvent, waitFor } from '@testing-library/react'
 

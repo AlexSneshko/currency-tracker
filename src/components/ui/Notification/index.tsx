@@ -6,10 +6,12 @@ import React, {
 } from 'react'
 import ReactDOM from 'react-dom'
 
+import { NotificationStatuses } from '@/types/notifacation'
+
 import { StyledNotification } from './styled'
 
 interface NotificationProps {
-  type: 'success' | 'error'
+  type: NotificationStatuses
   message: string
 }
 
@@ -20,6 +22,8 @@ interface NotificationState {
 interface NotificationMethods {
   show: () => void
 }
+
+export type NotificationVisability = 'visible' | 'hidden'
 
 class Notification
   extends Component<NotificationProps, NotificationState>
@@ -40,13 +44,15 @@ class Notification
     })
   }
 
-  render() {
+  getShowStatus = (): NotificationVisability =>
+    this.state.showSnackbar ? 'visible' : 'hidden'
+
+  render = () => {
     const { type, message } = this.props
-    const { showSnackbar } = this.state
 
     return ReactDOM.createPortal(
       <StyledNotification
-        show={showSnackbar}
+        show={this.getShowStatus()}
         type={type}
         data-cy="notification"
       >
@@ -57,10 +63,8 @@ class Notification
   }
 }
 
-const ForwardedNotification = forwardRef(
+export const ForwardedNotification = forwardRef(
   (props: NotificationProps, ref: React.ForwardedRef<Notification>) => (
     <Notification {...props} ref={ref} />
   )
 ) as ForwardRefExoticComponent<NotificationProps & RefAttributes<Notification>>
-
-export default ForwardedNotification

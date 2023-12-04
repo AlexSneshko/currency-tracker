@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
 import { roundNumber } from '@/helpers/roundNumber'
-import { CurrencyCode, CurrencyWithValue } from '@/types/currency'
+import { CurrencyWithValue } from '@/types/currency'
 
-import CurrencyModal from '../CurrencyModal'
+import { CurrencyModal } from '../CurrencyModal'
 import {
   CurrencyInfoBlock,
   CurrencyName,
@@ -16,15 +16,20 @@ interface CurrencyCardProps {
   currency: CurrencyWithValue
 }
 
-const CurrencyCard: React.FC<CurrencyCardProps> = ({ type, currency }) => {
+export const CurrencyCard: React.FC<CurrencyCardProps> = ({
+  type,
+  currency,
+}) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   const roundedValue = roundNumber(currency.value)
 
+  const onChangeIsModalOpen = (status: boolean) => () => setIsModalOpen(status)
+
   return (
     <>
       <StyledCurrencyCard
-        onClick={() => setIsModalOpen(true)}
+        onClick={onChangeIsModalOpen(true)}
         data-cy="currency-card"
       >
         <img src={currency.icon} />
@@ -37,11 +42,9 @@ const CurrencyCard: React.FC<CurrencyCardProps> = ({ type, currency }) => {
       </StyledCurrencyCard>
       <CurrencyModal
         open={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
+        onClose={onChangeIsModalOpen(false)}
         currency={currency}
       />
     </>
   )
 }
-
-export default CurrencyCard
